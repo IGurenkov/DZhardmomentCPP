@@ -26,13 +26,12 @@ void insert_sorted(vector <Type> mVec, Type a) //Чисто для вектор�
 template <typename Container, typename Value>
 void insert_sorted(Container& container, const Value& value)
 {     
-    auto iter = lower_bound(container.begin(), container.end(), value); //Находим место для вставки элемента и записываем найденное место в переменную
-    container.insert(iter, value); //Производим вставку элемента, указываем переменную с местом куда вставить и переменную, которую надо вставить
+    //Находим с помощью алгоритмов место для вставки элемента и производим вставку
+    container.insert(lower_bound(container.begin(), container.end(), value), value);
     for_each(container.begin(), container.end(), [](auto i) {cout << "[" << i << "]"; }); //Выводим на экран элементы контейнера
 
     cout << endl << endl;
 };
-
 
 int main()
 {
@@ -66,7 +65,7 @@ int main()
                 for_each(Vec.begin(), Vec.end(), [](auto i) {cout << "[" << i << "]"; }); //Выводим его на экран
 
                 cout << endl << endl;
-                int Y = 0;
+                int Y;
                 cout << "ВВЕДИТЕ ЧИСЛО ДЛЯ ВСТАВКИ: ";
                 cin >> Y;
                 cout << endl;
@@ -159,8 +158,7 @@ int main()
         {
             cout << "ВЫ ВВЕЛИ НЕКОРРЕКТНЫЕ ЗНАЧЕНИЯ! ПРОГРАММА ЗАВЕРШЕНА!" << endl;
             break;
-        }
-        
+        }        
     }
     return 0;
 }
