@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package MyNameSpace;
+
+message FullName
+{
+	string Name = 1;
+	string LastName = 2;
+	optional string FatherName = 3;
+}
+syntax="proto3";
+
+package MyNameSpace;
+message Student
+{
+	FullName fullname = 1;
+	repeated int32 Points = 2;
+	float PointsAverage = 3;
+}
+syntax="proto3";
+
+package MyNameSpace;
+message StudentsGroup
+{	
+	repeated Student student = 1;	
+}
